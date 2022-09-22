@@ -23,14 +23,21 @@ search.addEventListener("click", (e) => {
         zipCodeToCoord(zipinput.value);
     }
 })
-
+zipinput.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        // Trigger the button element with a click
+        search.click();
+    }
+});
 
 async function zipCodeToCoord(location = 10006, defaultvid) {
     try {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${location},US&appid=a200fff5462f3bfa8e2d607ab83cbcc6&units=imperial`, {mode:"cors"});
     let data = await response.json();
 
-    let nameResponse = await fetch( `http://api.openweathermap.org/geo/1.0/reverse?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=a200fff5462f3bfa8e2d607ab83cbcc6`, {mode: "cors"});
+    let nameResponse = await fetch( `https://api.openweathermap.org/geo/1.0/reverse?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=a200fff5462f3bfa8e2d607ab83cbcc6`, {mode: "cors"});
     let nameData = await nameResponse.json();
         console.log(data);
         console.log(nameData);
