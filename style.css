@@ -140,6 +140,28 @@ margin-top: 1rem;
 margin-bottom: 0.5rem;
 }
 
+footer {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    font-size: 18px;
 
+}
+.github-icon {
+    background-image: url("images/GitHub-Mark-Light-32px.png");
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 500ms;
+}
+.github-icon:hover {
+    transform: rotate(360deg);
+}
 
 
